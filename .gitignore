@@ -1,0 +1,7 @@
+# Never commit key material or transaction files
+*.skey
+*.vkey
+*.addr
+*.raw
+*.signed
+priv/
