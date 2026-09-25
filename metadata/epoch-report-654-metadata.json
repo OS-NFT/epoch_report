@@ -40,9 +40,10 @@
             {
               "title": "Update Constitutional Committee 2026",
               "type": "NewCommittee",
-              "enacted_epoch": 654,
-              "drep_yes_pct": "71.95",
-              "spo_yes_pct": "54.48"
+              "votes": {
+                "drep": "71.95",
+                "spo": "54.48"
+              }
             }
           ],
           "expired": []

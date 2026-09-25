@@ -40,16 +40,18 @@
             {
               "title": "Governance Incentives Framework 2026",
               "type": "TreasuryWithdrawals",
-              "expired_epoch": 656,
-              "drep_yes_pct": "1.72",
-              "cc_yes_pct": "14.29"
+              "votes": {
+                "drep": "1.72",
+                "cc": "14.29"
+              }
             },
             {
               "title": "Reimburse Ikigai Info Governance Action Deposit",
               "type": "TreasuryWithdrawals",
-              "expired_epoch": 656,
-              "drep_yes_pct": "65.18",
-              "cc_yes_pct": "71.43"
+              "votes": {
+                "drep": "65.18",
+                "cc": "71.43"
+              }
             }
           ]
         }
