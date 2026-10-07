@@ -1,0 +1,136 @@
+{
+  "721": {
+    "f8b9cb66507bb95a96dc7523ecfe15fd7e5b4f24297e36553fd93c1d": {
+      "MonthlyReport202609": {
+        "name": "Monthly Report September 2026",
+        "image": [
+          "ipfs://",
+          "bafkreif22asjkd6eylxq6qp4ljsqsfss5cfg2ggzqecadjsuwo7uo4cub4"
+        ],
+        "mediaType": "image/png",
+        "period": "2026-09",
+        "context": [
+          "2026-09-01 00:00 UTC (epoch 652, day 5) to ",
+          "2026-09-30 23:59 UTC (epoch 658, day 5); 6 epoch boundaries"
+        ],
+        "governance": {
+          "1_open_at_start": [
+            {
+              "title": [
+                "Reduce minPoolCost to 75 ada and increase Plutus Memory Limits ",
+                "(Part 2)"
+              ],
+              "type": "ParameterChange"
+            },
+            {
+              "title": "Update Constitutional Committee 2026",
+              "type": "NewCommittee"
+            },
+            {
+              "title": "Governance Incentives Framework 2026",
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": "Reimburse Ikigai Info Governance Action Deposit",
+              "type": "TreasuryWithdrawals"
+            }
+          ],
+          "2_new": [
+            {
+              "title": [
+                "Withdraw 11,787,063 ada for the OpenZeppelin Stack administered ",
+                "by Intersect"
+              ],
+              "type": "TreasuryWithdrawals",
+              "when": "2026-09-08 (epoch 654)"
+            },
+            {
+              "title": "Reduce minPoolCost to 75 ada",
+              "type": "ParameterChange",
+              "when": "2026-09-11 (epoch 654)"
+            },
+            {
+              "title": [
+                "Should stakePoolTargetNum (k) be raised from 500 to 1000? (SPO ",
+                "poll)"
+              ],
+              "type": "InfoAction",
+              "when": "2026-09-17 (epoch 656)"
+            }
+          ],
+          "3_ratified": [
+            {
+              "title": "Update Constitutional Committee 2026",
+              "type": "NewCommittee",
+              "votes": {
+                "drep": "71.95",
+                "spo": "54.48"
+              },
+              "when": "2026-09-01 (652-653)"
+            }
+          ],
+          "4_enacted": [
+            {
+              "title": "Update Constitutional Committee 2026",
+              "type": "NewCommittee",
+              "when": "2026-09-06 (653-654)"
+            }
+          ],
+          "5_expired": [
+            {
+              "title": [
+                "Reduce minPoolCost to 75 ada and increase Plutus Memory Limits ",
+                "(Part 2)"
+              ],
+              "type": "ParameterChange",
+              "votes": {
+                "drep": "68.57",
+                "cc": "71.43",
+                "spo": "33.48"
+              },
+              "when": "2026-09-06 (653-654)"
+            },
+            {
+              "title": "Governance Incentives Framework 2026",
+              "type": "TreasuryWithdrawals",
+              "votes": {
+                "drep": "1.72",
+                "cc": "14.29"
+              },
+              "when": "2026-09-21 (656-657)"
+            },
+            {
+              "title": "Reimburse Ikigai Info Governance Action Deposit",
+              "type": "TreasuryWithdrawals",
+              "votes": {
+                "drep": "65.18",
+                "cc": "71.43"
+              },
+              "when": "2026-09-21 (656-657)"
+            }
+          ],
+          "6_open_at_end": [
+            {
+              "title": [
+                "Withdraw 11,787,063 ada for the OpenZeppelin Stack administered ",
+                "by Intersect"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": "Reduce minPoolCost to 75 ada",
+              "type": "ParameterChange"
+            },
+            {
+              "title": [
+                "Should stakePoolTargetNum (k) be raised from 500 to 1000? (SPO ",
+                "poll)"
+              ],
+              "type": "InfoAction"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
