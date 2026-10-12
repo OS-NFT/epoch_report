@@ -31,7 +31,7 @@ Both series share one policy.
 ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
 ```
 
-Themes: forest, desert, beach, ocean, mountain, night (random if omitted).
+Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon (random if omitted).
 
 **Tiers:** silver for standard epochs. Gold for sequential digit runs in either direction (e.g. 654), round hundreds (e.g. 700), and repdigits (e.g. 777).
 
@@ -118,6 +118,8 @@ sha256sum metadata/*.json
 | 656   | silver | forest   | `bafkreigmumzsqduilwa7w7i6zdz6nbdcvqngzxzwxdbvhhyszqwhoo5mwu` |
 | 657   | silver | beach    | `bafkreiaeqohamecnuv6dp4p7ybi2eearw65rib6iwucazh7qnrw6veiwwi` |
 | 658   | silver | ocean    | `bafkreiceuodshalhgtr2x7s5a6vqkef4i64b2dycsjn32ldwd56n6vvvm4` |
+| 659   | silver | aurora   | `bafkreia4xeevwrkqw5nusvgy37azclh6evt6usnz6dsn3it5g736d5mhzm` |
+| 660   | silver | lagoon   | `bafkreicsb2cnqlhrz4mt7iy6voo66mll2agauvcwd7e5iz3aisdfepobrq` |
 
 ### Monthly Reports
 
@@ -140,6 +142,8 @@ Quantity 1 each. Dates are UTC.
 | 657     | `EpochReport657`      | v2      | 2026-10-01 | `8fb0444332693da640af6a2708873e1d85a2e3a3e5569162751273a0ae08fdbb` |
 | 658     | `EpochReport658`      | v2      | 2026-10-06 | `9d0f3395070e2c0fc0ad75fd4ba45b8d28360a4de237b81ecd15b250253b5549` |
 | 2026-09 | `MonthlyReport202609` | monthly | 2026-10-06 | `5f64f30e7f4c3b59707ce3e4fe109727315b0b7bf507b5d5987d835ab0288efa` |
+| 659     | `EpochReport659`      | v2      | 2026-10-12 | `d3b1bf0b5e27b03b96115f6c19c534a297f1eaf7c35facd4ee5dcf64bef9077d` |
+| 660     | `EpochReport660`      | v2      | 2026-10-12 | `98b36be4725190a9a5beb44cd8c0cd4d27f5b470bc7594275907f47c498c1938` |
 
 ## License
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage: ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
-# Themes: forest desert beach ocean mountain night (random if omitted)
+# Themes: forest desert beach ocean mountain night aurora lagoon (random if omitted)
 
 EPOCH="$1"
 TIER="$2"
@@ -21,7 +21,7 @@ else
   HIGHLIGHT="#e8e8e8"
 fi
 
-THEMES=(forest desert beach ocean mountain night)
+THEMES=(forest desert beach ocean mountain night aurora lagoon)
 if [ -z "$THEME" ]; then
   THEME=${THEMES[$RANDOM % ${#THEMES[@]}]}
 fi
@@ -97,6 +97,28 @@ case "$THEME" in
       -fill "#1c2247" -draw "rectangle 0,170 200,200"
       -fill "#f5f0c8" -draw "circle 170,30 170,15"
       -fill white -draw "point 20,20" -draw "point 195,60" -draw "point 20,180" -draw "point 180,180") ;;
+  aurora)
+    BG=(-size 200x200 xc:"#071a2b"
+      -fill "#0b2440" -draw "rectangle 0,100 200,150"
+      -fill "#2ecc71" -draw "path 'M 0,40 Q 50,20 100,45 T 200,35 L 200,48 Q 150,58 100,58 T 0,52 Z'"
+      -fill "#1abc9c" -draw "path 'M 0,62 Q 60,45 110,68 T 200,60 L 200,70 Q 150,80 100,78 T 0,72 Z'"
+      -fill "#8e44ad" -draw "path 'M 0,80 Q 70,70 120,86 T 200,82 L 200,88 Q 150,94 100,92 T 0,86 Z'"
+      -fill "#e8f1f8" -draw "rectangle 0,160 200,200"
+      -fill "#d2dfea" -draw "rectangle 0,182 200,200"
+      -fill "#0b1f17" -draw "polygon 6,165 16,128 26,165"
+      -fill "#0b1f17" -draw "polygon 174,165 184,128 194,165"
+      -fill white -draw "point 25,15" -draw "point 170,12" -draw "point 190,95" -draw "point 12,110") ;;
+  lagoon)
+    BG=(-size 200x200 xc:"#140d33"
+      -fill "#241650" -draw "rectangle 0,55 200,95"
+      -fill "#4a2a7a" -draw "rectangle 0,95 200,118"
+      -fill "#fff6c8" -draw "circle 28,28 28,14"
+      -fill "#063f47" -draw "rectangle 0,118 200,200"
+      -fill "#0a5a63" -draw "rectangle 0,140 200,200"
+      -fill "#39ffe0" -draw "rectangle 0,128 200,130" -draw "rectangle 0,152 200,155" -draw "rectangle 0,172 200,175"
+      -fill "#f2deb0" -draw "rectangle 0,186 200,200"
+      -fill "#e2c890" -draw "rectangle 0,194 200,200"
+      -fill white -draw "point 60,12" -draw "point 150,20" -draw "point 185,45" -draw "point 12,70" -draw "point 190,85") ;;
   *)
     echo "Unknown theme: $THEME"; exit 1 ;;
 esac
