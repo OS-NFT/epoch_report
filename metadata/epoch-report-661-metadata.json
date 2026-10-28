@@ -1,0 +1,57 @@
+{
+  "721": {
+    "f8b9cb66507bb95a96dc7523ecfe15fd7e5b4f24297e36553fd93c1d": {
+      "EpochReport661": {
+        "name": "Epoch Report 661",
+        "image": [
+          "ipfs://",
+          "bafkreiaokz4plz45hdbhmp2qssf6upudnli57ihjdwghzvcnjnx7v2thom"
+        ],
+        "mediaType": "image/png",
+        "design": "hand",
+        "theme": "beach",
+        "epoch": 661,
+        "governance": {
+          "new": [
+            {
+              "title": "Cardano Strategic Copper Reserve | ₳22M RWA Tokenization",
+              "type": "TreasuryWithdrawals"
+            }
+          ],
+          "active": [
+            {
+              "title": [
+                "Should stakePoolTargetNum (k) be raised from 500 to 1000? (SPO ",
+                "poll)"
+              ],
+              "type": "InfoAction"
+            }
+          ],
+          "ratified": [],
+          "enacted": [],
+          "expired": [
+            {
+              "title": [
+                "Withdraw 11,787,063 ada for the OpenZeppelin Stack administered ",
+                "by Intersect"
+              ],
+              "type": "TreasuryWithdrawals",
+              "votes": {
+                "drep": "4.00",
+                "cc": "71.43"
+              }
+            },
+            {
+              "title": "Reduce minPoolCost to 75 ada",
+              "type": "ParameterChange",
+              "votes": {
+                "drep": "44.18",
+                "cc": "71.43"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

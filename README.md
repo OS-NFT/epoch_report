@@ -2,7 +2,7 @@
 
 Governance-history NFTs from the WEED Cardano stake pool, in two series:
 
-- **Epoch Reports:** one NFT per epoch recording that epoch's on-chain governance actions, with a generated commemorative coin as the image.
+- **Epoch Reports:** one NFT per epoch recording that epoch's on-chain governance actions, with a generated commemorative image (a coin for 653–660, a hand from 661).
 - **Monthly Reports:** one NFT per calendar month summarising governance across the month, with a scroll-calendar image.
 
 Both series share one policy.
@@ -14,16 +14,17 @@ Both series share one policy.
 
 ## Contents
 
-| Path                                | Purpose                                                                                     |
-| ----------------------------------- | ------------------------------------------------------------------------------------------- |
-| `scripts/generate_epoch_coin.sh`    | ImageMagick coin generator (Epoch Reports)                                                  |
-| `scripts/generate_monthly_coin.sh`  | Scroll-calendar image generator (Monthly Reports)                                           |
-| `scripts/build_epoch_report.sh`     | Builds an Epoch Report's metadata                                                           |
-| `scripts/chunk64.jq`                | Splits metadata strings over 64 bytes into arrays                                           |
-| `scripts/search.sh`                 | Searches the minted metadata (both series, both epoch schemas)                              |
-| `coins/`                            | Report images, pinned to IPFS                                                               |
-| `metadata/`                         | Minted metadata for each report, byte-identical to the file submitted on-chain              |
-| `manifest.json`                     | Index of every report: series, asset, mint tx, schema, tier, theme, image, metadata SHA-256 |
+| Path                               | Purpose                                                                                               |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `scripts/generate_epoch_coin.sh`   | ImageMagick coin generator (Epoch Reports 653–660)                                                    |
+| `scripts/generate_epoch_hand.sh`   | ImageMagick hand generator (Epoch Reports 661 onward)                                                 |
+| `scripts/generate_monthly_coin.sh` | Scroll-calendar image generator (Monthly Reports)                                                     |
+| `scripts/build_epoch_report.sh`    | Builds an Epoch Report's metadata                                                                     |
+| `scripts/chunk64.jq`               | Splits metadata strings over 64 bytes into arrays                                                     |
+| `scripts/search.sh`                | Searches the minted metadata (both series, both epoch schemas)                                        |
+| `coins/`                           | Report images, pinned to IPFS                                                                         |
+| `metadata/`                        | Minted metadata for each report, byte-identical to the file submitted on-chain                        |
+| `manifest.json`                    | Index of every report: series, asset, mint tx, schema, tier or design, theme, image, metadata SHA-256 |
 
 ## Coins
 
@@ -35,11 +36,27 @@ Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon (random if
 
 **Tiers:** silver for standard epochs. Gold for sequential digit runs in either direction (e.g. 654), round hundreds (e.g. 700), and repdigits (e.g. 777).
 
+### Hand design (661 onward)
+
+From Epoch Report 661 the coin is replaced by a pixel-art open hand, palm up, on the same 200x200 grid and theme backgrounds as the coins. The epoch number sits exactly where the coin's number was. Hands have no tier.
+
+```
+./generate_epoch_hand.sh <epoch_number> [theme]
+```
+
+Theme defaults to beach. The current version supports beach only.
+
 Monthly Reports use a different image: a pixel-art Roman scroll calendar in the same style as the coins, with the days on which an epoch boundary falls shown as red numbered cells, set on background bands coloured by season. Monthly images have no tier or theme.
 
 ## Metadata schema
 
-Each Epoch Report includes `name`, `image`, `mediaType`, `tier`, `theme`, `epoch`, and `governance`. Governance actions are sorted into five buckets:
+Each Epoch Report includes `name`, `image`, `mediaType`, `tier`, `theme`, `epoch`, and `governance`. From 661, `design` (e.g. `hand`) takes the place of `tier`, in the same position. `build_epoch_report.sh` writes it when given `--design`; without the flag, its output is unchanged:
+
+```
+./build_epoch_report.sh 661 --theme beach --cid <CID> --design hand -o epoch-report-661-metadata.json
+```
+
+Governance actions are sorted into five buckets:
 
 - **new:** proposed this epoch
 - **active:** proposed in an earlier epoch and still open
@@ -110,16 +127,17 @@ sha256sum metadata/*.json
 
 ### Epoch Reports
 
-| Epoch | Tier   | Theme    | Image CID                                                     |
-| ----- | ------ | -------- | ------------------------------------------------------------- |
-| 653   | silver | beach    | `bafkreidrx2tmdaskbewz4pyhuy2cnd4xgx4hsoskkzetoanjwwdsowqkn4` |
-| 654   | gold   | night    | `bafkreifbuz4x3vbmk74g4vena7ylcoqb3mqvvn2fkq7z6bmry7ovdbf4dm` |
-| 655   | silver | mountain | `bafkreiazjhlg7atk76nmw6z5zb3jr7u37op4ilpqrwjbinzon5uo6ugexq` |
-| 656   | silver | forest   | `bafkreigmumzsqduilwa7w7i6zdz6nbdcvqngzxzwxdbvhhyszqwhoo5mwu` |
-| 657   | silver | beach    | `bafkreiaeqohamecnuv6dp4p7ybi2eearw65rib6iwucazh7qnrw6veiwwi` |
-| 658   | silver | ocean    | `bafkreiceuodshalhgtr2x7s5a6vqkef4i64b2dycsjn32ldwd56n6vvvm4` |
-| 659   | silver | aurora   | `bafkreia4xeevwrkqw5nusvgy37azclh6evt6usnz6dsn3it5g736d5mhzm` |
-| 660   | silver | lagoon   | `bafkreicsb2cnqlhrz4mt7iy6voo66mll2agauvcwd7e5iz3aisdfepobrq` |
+| Epoch | Tier / design | Theme    | Image CID                                                     |
+| ----- | ------------- | -------- | ------------------------------------------------------------- |
+| 653   | silver        | beach    | `bafkreidrx2tmdaskbewz4pyhuy2cnd4xgx4hsoskkzetoanjwwdsowqkn4` |
+| 654   | gold          | night    | `bafkreifbuz4x3vbmk74g4vena7ylcoqb3mqvvn2fkq7z6bmry7ovdbf4dm` |
+| 655   | silver        | mountain | `bafkreiazjhlg7atk76nmw6z5zb3jr7u37op4ilpqrwjbinzon5uo6ugexq` |
+| 656   | silver        | forest   | `bafkreigmumzsqduilwa7w7i6zdz6nbdcvqngzxzwxdbvhhyszqwhoo5mwu` |
+| 657   | silver        | beach    | `bafkreiaeqohamecnuv6dp4p7ybi2eearw65rib6iwucazh7qnrw6veiwwi` |
+| 658   | silver        | ocean    | `bafkreiceuodshalhgtr2x7s5a6vqkef4i64b2dycsjn32ldwd56n6vvvm4` |
+| 659   | silver        | aurora   | `bafkreia4xeevwrkqw5nusvgy37azclh6evt6usnz6dsn3it5g736d5mhzm` |
+| 660   | silver        | lagoon   | `bafkreicsb2cnqlhrz4mt7iy6voo66mll2agauvcwd7e5iz3aisdfepobrq` |
+| 661   | hand          | beach    | `bafkreiaokz4plz45hdbhmp2qssf6upudnli57ihjdwghzvcnjnx7v2thom` |
 
 ### Monthly Reports
 
@@ -144,6 +162,11 @@ Quantity 1 each. Dates are UTC.
 | 2026-09 | `MonthlyReport202609` | monthly | 2026-10-06 | `5f64f30e7f4c3b59707ce3e4fe109727315b0b7bf507b5d5987d835ab0288efa` |
 | 659     | `EpochReport659`      | v2      | 2026-10-12 | `d3b1bf0b5e27b03b96115f6c19c534a297f1eaf7c35facd4ee5dcf64bef9077d` |
 | 660     | `EpochReport660`      | v2      | 2026-10-12 | `98b36be4725190a9a5beb44cd8c0cd4d27f5b470bc7594275907f47c498c1938` |
+| 661     | `EpochReport661`      | v2      | 2026-10-20 | `5bad8b478851c0daba29ecbb576c01f90ead388393df8ed0fa781f90e5b65a55` |
+
+## Provenance notes
+
+- **654 vote figures:** after Epoch Report 654 was minted, Koios revised one of its SPO yes figures from 54.48 to 54.30. The on-chain metadata keeps 54.48, the figure Koios reported at mint time. Rebuilding 654 today will show that difference; it is a change in the source data, not in the builder.
 
 ## License
 

@@ -58,7 +58,7 @@ votes_for() {  # voting summary for one proposal, cached
 }
 
 build() {  # build <epoch> <theme> <cid> <outfile>
-  local n="$1" theme="$2" cid="$3" out="$4" props tier
+  local n="$1" theme="$2" cid="$3" out="$4" design="${5:-}" props tier
   props=$(fetch_proposals)
   tier=$(tier_for "$n")
 
@@ -70,7 +70,7 @@ build() {  # build <epoch> <theme> <cid> <outfile>
     jq --arg id "$id" --argjson v "$(votes_for "$id")" '. + {($id): $v}' "$WORK/votes.json" >"$WORK/v.tmp" && mv "$WORK/v.tmp" "$WORK/votes.json"
   done
 
-  jq --argjson n "$n" --arg theme "$theme" --arg cid "$cid" --arg tier "$tier" --arg policy "$POLICY" \
+  jq --argjson n "$n" --arg theme "$theme" --arg cid "$cid" --arg tier "$tier" --arg design "$design" --arg policy "$POLICY" \
      --slurpfile votes "$WORK/votes.json" -f /dev/stdin "$props" >"$WORK/raw.json" <<'JQ'
 def security_keys: [
   "max_block_size","max_tx_size","max_bh_size","max_val_size","max_block_ex_mem","max_block_ex_steps",
@@ -111,12 +111,13 @@ sort_by(.block_time, .proposal_index) as $p
         enacted:  [$p[] | select(.enacted_epoch == $n)  | item(true)],
         expired:  [$p[] | select(.expired_epoch == $n)  | item(true)]
       } } } } }
+| if $design == "" then . else .["721"][$policy]["EpochReport\($n)"] |= with_entries(if .key == "tier" then {key: "design", value: $design} else . end) end
 JQ
 
   jq -f "$CHUNK" "$WORK/raw.json" >"$out"
 
   # ---- review log -------------------------------------------------------
-  log "Epoch $n  tier=$tier  theme=$theme"
+  log "Epoch $n  $([[ -n $design ]] && echo "design=$design" || echo "tier=$tier")  theme=$theme"
   jq -r --argjson n "$n" '
     sort_by(.block_time, .proposal_index)[]
     | (if .proposed_epoch == $n then "new" elif .ratified_epoch == $n then "ratified" elif .enacted_epoch == $n then "enacted"
@@ -172,14 +173,15 @@ regress() {
 if [[ "${1:-}" == "--regress" ]]; then regress; exit $?; fi
 [[ "${1:-}" =~ ^[0-9]+$ ]] || die "usage: $0 <epoch> --theme <theme> --cid <cid> [-o file]  |  $0 --regress"
 EPOCH="$1"; shift
-THEME="" CID="" OUT=""
+THEME="" CID="" OUT="" DESIGN=""
 while (( $# )); do
   case "$1" in
     --theme) THEME="$2"; shift 2 ;;
     --cid)   CID="$2"; shift 2 ;;
+    --design) DESIGN="$2"; shift 2 ;;
     -o)      OUT="$2"; shift 2 ;;
     *) die "unknown option $1" ;;
   esac
 done
 [[ -n "$THEME" && -n "$CID" ]] || die "--theme and --cid are required"
-build "$EPOCH" "$THEME" "$CID" "${OUT:-$HOME/epoch-report-$EPOCH-metadata.json}"
+build "$EPOCH" "$THEME" "$CID" "${OUT:-$HOME/epoch-report-$EPOCH-metadata.json}" "$DESIGN"
