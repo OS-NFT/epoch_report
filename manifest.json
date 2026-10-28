@@ -110,6 +110,18 @@
       "sha256": "43acf31adf2be2fee2037e5d6e7c75e9351a0b637a7f728e4e885727adda0a93"
     },
     {
+      "series": "epoch",
+      "epoch": 662,
+      "asset": "EpochReport662",
+      "tx": "f4c58b6d801c78e98d5216f73b46ae9e275251cc7bea29ea9eea7a1881fff5ce",
+      "schema": "v2",
+      "tier": "silver",
+      "theme": "savanna",
+      "image": "ipfs://bafkreice4upopynmr4qxccw4yy26kbrtdbmilw47tecs6x4xvp6xjd2rau",
+      "file": "metadata/epoch-report-662-metadata.json",
+      "sha256": "cc988a8f11896472964fa21a4763399dca437c8b59e59524d3b68009871c5106"
+    },
+    {
       "series": "monthly",
       "month": "2026-09",
       "asset": "MonthlyReport202609",

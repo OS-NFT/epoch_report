@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage: ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
-# Themes: forest desert beach ocean mountain night aurora lagoon (random if omitted)
+# Themes: forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm (random if omitted)
 
 EPOCH="$1"
 TIER="$2"
@@ -21,7 +21,7 @@ else
   HIGHLIGHT="#e8e8e8"
 fi
 
-THEMES=(forest desert beach ocean mountain night aurora lagoon)
+THEMES=(forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm)
 if [ -z "$THEME" ]; then
   THEME=${THEMES[$RANDOM % ${#THEMES[@]}]}
 fi
@@ -119,6 +119,52 @@ case "$THEME" in
       -fill "#f2deb0" -draw "rectangle 0,186 200,200"
       -fill "#e2c890" -draw "rectangle 0,194 200,200"
       -fill white -draw "point 60,12" -draw "point 150,20" -draw "point 185,45" -draw "point 12,70" -draw "point 190,85") ;;
+  meadow)
+    BG=(-size 200x200 xc:"#cfe9f5"
+      -fill "#eef8fc" -draw "rectangle 0,0 200,25"
+      -fill "#def1f8" -draw "rectangle 0,25 200,50"
+      -fill white -draw "rectangle 8,22 38,28" -draw "rectangle 14,18 32,22"
+      -fill white -draw "rectangle 158,12 190,18" -draw "rectangle 166,8 182,12"
+      -fill "#9fd25a" -draw "path 'M 0,140 Q 50,122 100,138 T 200,132 L 200,200 L 0,200 Z'"
+      -fill "#83bf3f" -draw "path 'M 0,162 Q 60,148 110,162 T 200,158 L 200,200 L 0,200 Z'"
+      -fill "#6aa832" -draw "rectangle 0,184 200,200"
+      -fill "#ff8fb1" -draw "point 14,176" -draw "point 40,190" -draw "point 168,174" -draw "point 186,192"
+      -fill "#ffe34d" -draw "point 26,186" -draw "point 176,184" -draw "point 8,194" -draw "point 194,170") ;;
+  savanna)
+    BG=(-size 200x200 xc:"#f7d083"
+      -fill "#fbe7b4" -draw "rectangle 0,0 200,30"
+      -fill "#f9dc9c" -draw "rectangle 0,30 200,60"
+      -fill "#f4b860" -draw "rectangle 0,110 200,150"
+      -fill "#f08a3a" -draw "circle 184,150 184,134"
+      -fill "#c9a24a" -draw "rectangle 0,150 200,200"
+      -fill "#b38a3a" -draw "rectangle 0,170 200,200"
+      -fill "#9c7530" -draw "rectangle 0,188 200,200"
+      -fill "#3b2a1a" -draw "rectangle 15,160 18,186"
+      -fill "#3b2a1a" -draw "polygon 2,160 8,152 26,152 32,160"
+      -fill "#3b2a1a" -draw "line 16,170 9,161" -draw "line 17,168 25,161") ;;
+  reef)
+    BG=(-size 200x200 xc:"#0f6e8c"
+      -fill "#3fb3cf" -draw "rectangle 0,0 200,20"
+      -fill "#2a98b8" -draw "rectangle 0,20 200,45"
+      -fill "#1c84a3" -draw "rectangle 0,45 200,70"
+      -fill "#2c8fae" -draw "polygon 6,0 18,0 34,40 22,40" -draw "polygon 182,0 194,0 178,40 166,40"
+      -fill "#e6d3a3" -draw "rectangle 0,182 200,200"
+      -fill "#d6c08a" -draw "rectangle 0,192 200,200"
+      -fill "#ff6f61" -draw "rectangle 10,150 14,184" -draw "rectangle 4,160 8,176" -draw "rectangle 16,158 20,172"
+      -fill "#ff9f43" -draw "circle 32,176 32,168"
+      -fill "#c44569" -draw "rectangle 180,148 184,184" -draw "rectangle 186,160 190,176" -draw "rectangle 174,162 178,174"
+      -fill "#ffd166" -draw "circle 166,178 166,171"
+      -fill white -draw "point 12,96" -draw "point 15,86" -draw "point 186,120" -draw "point 189,110") ;;
+  storm)
+    BG=(-size 200x200 xc:"#3b4552"
+      -fill "#2a313b" -draw "rectangle 0,0 200,40"
+      -fill "#333b47" -draw "rectangle 0,40 200,70"
+      -fill "#46515f" -draw "rectangle 0,100 200,130"
+      -fill "#fff7b0" -draw "polygon 184,4 172,30 180,30 170,54 192,22 184,22 194,4"
+      -fill "#1d2a33" -draw "rectangle 0,130 200,200"
+      -fill "#24343f" -draw "rectangle 0,152 200,200"
+      -fill "#2b3d4a" -draw "rectangle 0,176 200,200"
+      -fill "#8fa3b0" -draw "rectangle 8,150 22,152" -draw "rectangle 168,160 184,162" -draw "rectangle 176,182 192,184" -draw "rectangle 24,186 38,188") ;;
   *)
     echo "Unknown theme: $THEME"; exit 1 ;;
 esac

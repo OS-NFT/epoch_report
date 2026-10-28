@@ -2,7 +2,7 @@
 
 Governance-history NFTs from the WEED Cardano stake pool, in two series:
 
-- **Epoch Reports:** one NFT per epoch recording that epoch's on-chain governance actions, with a generated commemorative image (a coin for 653–660, a hand from 661).
+- **Epoch Reports:** one NFT per epoch recording that epoch's on-chain governance actions, with a generated commemorative image (a coin; 661 is a hand).
 - **Monthly Reports:** one NFT per calendar month summarising governance across the month, with a scroll-calendar image.
 
 Both series share one policy.
@@ -16,8 +16,8 @@ Both series share one policy.
 
 | Path                               | Purpose                                                                                               |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `scripts/generate_epoch_coin.sh`   | ImageMagick coin generator (Epoch Reports 653–660)                                                    |
-| `scripts/generate_epoch_hand.sh`   | ImageMagick hand generator (Epoch Reports 661 onward)                                                 |
+| `scripts/generate_epoch_coin.sh`   | ImageMagick coin generator (Epoch Reports)                                                            |
+| `scripts/generate_epoch_hand.sh`   | ImageMagick hand generator (Epoch Report 661)                                                         |
 | `scripts/generate_monthly_coin.sh` | Scroll-calendar image generator (Monthly Reports)                                                     |
 | `scripts/build_epoch_report.sh`    | Builds an Epoch Report's metadata                                                                     |
 | `scripts/chunk64.jq`               | Splits metadata strings over 64 bytes into arrays                                                     |
@@ -32,13 +32,13 @@ Both series share one policy.
 ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
 ```
 
-Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon (random if omitted).
+Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon, meadow, savanna, reef, storm (random if omitted). Theme details sit in the corners, outside the coin (rim radius 75 around the centre of the 200x200 grid).
 
 **Tiers:** silver for standard epochs. Gold for sequential digit runs in either direction (e.g. 654), round hundreds (e.g. 700), and repdigits (e.g. 777).
 
-### Hand design (661 onward)
+### Hand design (661)
 
-From Epoch Report 661 the coin is replaced by a pixel-art open hand, palm up, on the same 200x200 grid and theme backgrounds as the coins. The epoch number sits exactly where the coin's number was. Hands have no tier.
+Epoch Report 661 used a pixel-art open hand, palm up, in place of the coin, on the same 200x200 grid and theme backgrounds as the coins. The epoch number sits exactly where the coin's number was. Hands have no tier. 662 returned to the coin.
 
 ```
 ./generate_epoch_hand.sh <epoch_number> [theme]
@@ -50,7 +50,7 @@ Monthly Reports use a different image: a pixel-art Roman scroll calendar in the 
 
 ## Metadata schema
 
-Each Epoch Report includes `name`, `image`, `mediaType`, `tier`, `theme`, `epoch`, and `governance`. From 661, `design` (e.g. `hand`) takes the place of `tier`, in the same position. `build_epoch_report.sh` writes it when given `--design`; without the flag, its output is unchanged:
+Each Epoch Report includes `name`, `image`, `mediaType`, `tier`, `theme`, `epoch`, and `governance`. A hand-design report (661) has `design` (e.g. `hand`) in place of `tier`, in the same position. `build_epoch_report.sh` writes it when given `--design`; without the flag, its output is unchanged:
 
 ```
 ./build_epoch_report.sh 661 --theme beach --cid <CID> --design hand -o epoch-report-661-metadata.json
@@ -138,6 +138,7 @@ sha256sum metadata/*.json
 | 659   | silver        | aurora   | `bafkreia4xeevwrkqw5nusvgy37azclh6evt6usnz6dsn3it5g736d5mhzm` |
 | 660   | silver        | lagoon   | `bafkreicsb2cnqlhrz4mt7iy6voo66mll2agauvcwd7e5iz3aisdfepobrq` |
 | 661   | hand          | beach    | `bafkreiaokz4plz45hdbhmp2qssf6upudnli57ihjdwghzvcnjnx7v2thom` |
+| 662   | silver        | savanna  | `bafkreice4upopynmr4qxccw4yy26kbrtdbmilw47tecs6x4xvp6xjd2rau` |
 
 ### Monthly Reports
 
@@ -163,10 +164,12 @@ Quantity 1 each. Dates are UTC.
 | 659     | `EpochReport659`      | v2      | 2026-10-12 | `d3b1bf0b5e27b03b96115f6c19c534a297f1eaf7c35facd4ee5dcf64bef9077d` |
 | 660     | `EpochReport660`      | v2      | 2026-10-12 | `98b36be4725190a9a5beb44cd8c0cd4d27f5b470bc7594275907f47c498c1938` |
 | 661     | `EpochReport661`      | v2      | 2026-10-20 | `5bad8b478851c0daba29ecbb576c01f90ead388393df8ed0fa781f90e5b65a55` |
+| 662     | `EpochReport662`      | v2      | 2026-10-28 | `f4c58b6d801c78e98d5216f73b46ae9e275251cc7bea29ea9eea7a1881fff5ce` |
 
 ## Provenance notes
 
 - **654 vote figures:** after Epoch Report 654 was minted, Koios revised one of its SPO yes figures from 54.48 to 54.30. The on-chain metadata keeps 54.48, the figure Koios reported at mint time. Rebuilding 654 today will show that difference; it is a change in the source data, not in the builder.
+- **662 PFMS title:** Koios had no parsed metadata for this treasury withdrawal (`gov_action1wfy3vzxurfgq6wrpxg2qdx3t6wm7ng8xwr26h47kxa8xhd20cr5qqz0wzfc`) at build time, so the builder could not find a title. The title was taken from the proposal's anchor document, after confirming the document's blake2b-256 matched the on-chain anchor hash `09e2ef6f02fd53aab203c872f082f888e8c53b383377a13e3b71eb08550be389`, and was split at 64 bytes by the same rule as other titles.
 
 ## License
 
