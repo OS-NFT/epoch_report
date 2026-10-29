@@ -139,6 +139,7 @@ sha256sum metadata/*.json
 | 660   | silver        | lagoon   | `bafkreicsb2cnqlhrz4mt7iy6voo66mll2agauvcwd7e5iz3aisdfepobrq` |
 | 661   | hand          | beach    | `bafkreiaokz4plz45hdbhmp2qssf6upudnli57ihjdwghzvcnjnx7v2thom` |
 | 662   | silver        | savanna  | `bafkreice4upopynmr4qxccw4yy26kbrtdbmilw47tecs6x4xvp6xjd2rau` |
+| 663   | silver        | storm    | `bafkreifeihfmozqbpm6anti57uqdp2tkm22lcqrgg2u76ogrelrrwzs6ce` |
 
 ### Monthly Reports
 
@@ -165,11 +166,13 @@ Quantity 1 each. Dates are UTC.
 | 660     | `EpochReport660`      | v2      | 2026-10-12 | `98b36be4725190a9a5beb44cd8c0cd4d27f5b470bc7594275907f47c498c1938` |
 | 661     | `EpochReport661`      | v2      | 2026-10-20 | `5bad8b478851c0daba29ecbb576c01f90ead388393df8ed0fa781f90e5b65a55` |
 | 662     | `EpochReport662`      | v2      | 2026-10-28 | `f4c58b6d801c78e98d5216f73b46ae9e275251cc7bea29ea9eea7a1881fff5ce` |
+| 663     | `EpochReport663`      | v2      | 2026-10-29 | `87c29529437754a46ee5fe7fed5cc44ebe0dc00e566959278837ca32972d088c` |
 
 ## Provenance notes
 
 - **654 vote figures:** after Epoch Report 654 was minted, Koios revised one of its SPO yes figures from 54.48 to 54.30. The on-chain metadata keeps 54.48, the figure Koios reported at mint time. Rebuilding 654 today will show that difference; it is a change in the source data, not in the builder.
 - **662 PFMS title:** Koios had no parsed metadata for this treasury withdrawal (`gov_action1wfy3vzxurfgq6wrpxg2qdx3t6wm7ng8xwr26h47kxa8xhd20cr5qqz0wzfc`) at build time, so the builder could not find a title. The title was taken from the proposal's anchor document, after confirming the document's blake2b-256 matched the on-chain anchor hash `09e2ef6f02fd53aab203c872f082f888e8c53b383377a13e3b71eb08550be389`, and was split at 64 bytes by the same rule as other titles.
+- **663 PFMS title:** Koios still had no parsed metadata for the same action when 663 was built, so the title array was copied byte-for-byte from the minted 662 metadata (`metadata/epoch-report-662-metadata.json`, sha256 `cc988a8f11896472964fa21a4763399dca437c8b59e59524d3b68009871c5106`), whose title was verified against the anchor hash above.
 
 ## License
 
