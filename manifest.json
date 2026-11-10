@@ -134,6 +134,30 @@
       "sha256": "03dc628b15627c62580d48ae39610a04ef8da1a4e348298acf12be95a9653e0f"
     },
     {
+      "series": "epoch",
+      "epoch": 664,
+      "asset": "EpochReport664",
+      "tx": "2ac8d399bc257db42bed34bd416d687e3c95ca9637487001fdfb209c7218af52",
+      "schema": "v2",
+      "tier": "silver",
+      "theme": "meadow",
+      "image": "ipfs://bafkreicme3xetpzkdmqgbzhe4cwq5vvawfkmfh5lkvhzu4fkgyslpu36h4",
+      "file": "metadata/epoch-report-664-metadata.json",
+      "sha256": "17ab0661a91002c1d3417740cf2fb779bfa0303ba47595bd2dd07ea0b28c6398"
+    },
+    {
+      "series": "epoch",
+      "epoch": 665,
+      "asset": "EpochReport665",
+      "tx": "d6296a4a8c2ea4e5e8da66f87f28ea38aaba8834deab202af78bcfee365b3d58",
+      "schema": "v2",
+      "tier": "silver",
+      "theme": "reef",
+      "image": "ipfs://bafkreigo7iq2ie6rgfduyjz6tedncp5k2yxvc36teanbcvpt7o76pejrc4",
+      "file": "metadata/epoch-report-665-metadata.json",
+      "sha256": "7a4d5a4090943bdb66b28d8b74a72b246e69af31de67cdbe61a13d3d46bc02a7"
+    },
+    {
       "series": "monthly",
       "month": "2026-09",
       "asset": "MonthlyReport202609",
@@ -141,6 +165,15 @@
       "image": "ipfs://bafkreif22asjkd6eylxq6qp4ljsqsfss5cfg2ggzqecadjsuwo7uo4cub4",
       "file": "metadata/monthly-report-202609-metadata.json",
       "sha256": "2e41764a6bcfba2fa93d6958180d0bcfd72aa0163bf46cd935d46e21fc165087"
+    },
+    {
+      "series": "monthly",
+      "month": "2026-10",
+      "asset": "MonthlyReport202610",
+      "tx": "c2589d7d1d8ddb1a60f69941c78684a10eb5cba68314e8504f1269d22e462f7e",
+      "image": "ipfs://bafkreiclg7nv4w5r4tjtzmueld7hyfeesw2a4r5zajxkb2fi2aumxhb2de",
+      "file": "metadata/monthly-report-202610-metadata.json",
+      "sha256": "c9a545df7a648916f8e4ce0124a2e0a8746d2302841519d80f4ae71d0980f63a"
     }
   ]
 }

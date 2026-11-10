@@ -32,7 +32,7 @@ Both series share one policy.
 ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
 ```
 
-Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon, meadow, savanna, reef, storm (random if omitted). Theme details sit in the corners, outside the coin (rim radius 75 around the centre of the 200x200 grid).
+Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon, meadow, savanna, reef, storm, bloodmoon (random if omitted). Theme details sit in the corners, outside the coin (rim radius 75 around the centre of the 200x200 grid).
 
 **Tiers:** silver for standard epochs. Gold for sequential digit runs in either direction (e.g. 654), round hundreds (e.g. 700), and repdigits (e.g. 777).
 
@@ -140,12 +140,15 @@ sha256sum metadata/*.json
 | 661   | hand          | beach    | `bafkreiaokz4plz45hdbhmp2qssf6upudnli57ihjdwghzvcnjnx7v2thom` |
 | 662   | silver        | savanna  | `bafkreice4upopynmr4qxccw4yy26kbrtdbmilw47tecs6x4xvp6xjd2rau` |
 | 663   | silver        | storm    | `bafkreifeihfmozqbpm6anti57uqdp2tkm22lcqrgg2u76ogrelrrwzs6ce` |
+| 664   | silver        | meadow   | `bafkreicme3xetpzkdmqgbzhe4cwq5vvawfkmfh5lkvhzu4fkgyslpu36h4` |
+| 665   | silver        | reef     | `bafkreigo7iq2ie6rgfduyjz6tedncp5k2yxvc36teanbcvpt7o76pejrc4` |
 
 ### Monthly Reports
 
 | Month   | Image CID                                                     |
 | ------- | ------------------------------------------------------------- |
 | 2026-09 | `bafkreif22asjkd6eylxq6qp4ljsqsfss5cfg2ggzqecadjsuwo7uo4cub4` |
+| 2026-10 | `bafkreiclg7nv4w5r4tjtzmueld7hyfeesw2a4r5zajxkb2fi2aumxhb2de` |
 
 Each CID is a raw sha2-256 CIDv1 of the image file, so it can be checked against `sha256sum`.
 
@@ -167,12 +170,19 @@ Quantity 1 each. Dates are UTC.
 | 661     | `EpochReport661`      | v2      | 2026-10-20 | `5bad8b478851c0daba29ecbb576c01f90ead388393df8ed0fa781f90e5b65a55` |
 | 662     | `EpochReport662`      | v2      | 2026-10-28 | `f4c58b6d801c78e98d5216f73b46ae9e275251cc7bea29ea9eea7a1881fff5ce` |
 | 663     | `EpochReport663`      | v2      | 2026-10-29 | `87c29529437754a46ee5fe7fed5cc44ebe0dc00e566959278837ca32972d088c` |
+| 664     | `EpochReport664`      | v2      | 2026-11-06 | `2ac8d399bc257db42bed34bd416d687e3c95ca9637487001fdfb209c7218af52` |
+| 2026-10 | `MonthlyReport202610` | monthly | 2026-11-06 | `c2589d7d1d8ddb1a60f69941c78684a10eb5cba68314e8504f1269d22e462f7e` |
+| 665     | `EpochReport665`      | v2      | 2026-11-10 | `d6296a4a8c2ea4e5e8da66f87f28ea38aaba8834deab202af78bcfee365b3d58` |
 
 ## Provenance notes
 
 - **654 vote figures:** after Epoch Report 654 was minted, Koios revised one of its SPO yes figures from 54.48 to 54.30. The on-chain metadata keeps 54.48, the figure Koios reported at mint time. Rebuilding 654 today will show that difference; it is a change in the source data, not in the builder.
 - **662 PFMS title:** Koios had no parsed metadata for this treasury withdrawal (`gov_action1wfy3vzxurfgq6wrpxg2qdx3t6wm7ng8xwr26h47kxa8xhd20cr5qqz0wzfc`) at build time, so the builder could not find a title. The title was taken from the proposal's anchor document, after confirming the document's blake2b-256 matched the on-chain anchor hash `09e2ef6f02fd53aab203c872f082f888e8c53b383377a13e3b71eb08550be389`, and was split at 64 bytes by the same rule as other titles.
 - **663 PFMS title:** Koios still had no parsed metadata for the same action when 663 was built, so the title array was copied byte-for-byte from the minted 662 metadata (`metadata/epoch-report-662-metadata.json`, sha256 `cc988a8f11896472964fa21a4763399dca437c8b59e59524d3b68009871c5106`), whose title was verified against the anchor hash above.
+- **664 survey title:** Koios had no parsed metadata for the new InfoAction `gov_action1wpjynage9uu4rg7rev2g2g2u0spvj5g3fe6lqq286m3dl5tdv47sqhysy4u` at build time. The title was taken from its anchor document after confirming the document's blake2b-256 matched the on-chain anchor hash `0ac3f40505cab485e027989b2eebcb4897a2af0e483fe5fe1274c88ecd8290b1`.
+- **664 PFMS title:** copied byte-for-byte from the minted 663 metadata (`metadata/epoch-report-663-metadata.json`, sha256 `03dc628b15627c62580d48ae39610a04ef8da1a4e348298acf12be95a9653e0f`).
+- **665 PFMS and survey titles:** Koios still had no parsed metadata for either action, so both title values were copied byte-for-byte from the minted 664 metadata (`metadata/epoch-report-664-metadata.json`, sha256 `17ab0661a91002c1d3417740cf2fb779bfa0303ba47595bd2dd07ea0b28c6398`).
+- **Monthly 2026-10 vote figures:** for the k-poll InfoAction, Koios revised the SPO yes figure from 2.20 (as minted in 663) to 2.16 before the October Monthly Report was built. The Monthly Report records 2.16, the figure Koios reported at build time; 663 keeps 2.20.
 
 ## License
 

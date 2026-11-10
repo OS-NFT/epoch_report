@@ -21,7 +21,7 @@ else
   HIGHLIGHT="#e8e8e8"
 fi
 
-THEMES=(forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm)
+THEMES=(forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm bloodmoon)
 if [ -z "$THEME" ]; then
   THEME=${THEMES[$RANDOM % ${#THEMES[@]}]}
 fi
@@ -155,6 +155,18 @@ case "$THEME" in
       -fill "#c44569" -draw "rectangle 180,148 184,184" -draw "rectangle 186,160 190,176" -draw "rectangle 174,162 178,174"
       -fill "#ffd166" -draw "circle 166,178 166,171"
       -fill white -draw "point 12,96" -draw "point 15,86" -draw "point 186,120" -draw "point 189,110") ;;
+  bloodmoon)
+    BG=(-size 200x200 xc:"#1a0f26"
+      -fill "#0b0614" -draw "rectangle 0,0 200,40"
+      -fill "#130a20" -draw "rectangle 0,40 200,70"
+      -fill "#2e1636" -draw "rectangle 0,100 200,152"
+      -fill "#8e1216" -draw "circle 178,22 178,50"
+      -fill "#6e0d11" -draw "circle 168,14 168,19" -draw "circle 190,32 190,36" -draw "circle 176,38 176,41"
+      -fill "#d8d0e0" -draw "point 14,10" -draw "point 30,24" -draw "point 8,34"
+      -fill "#0e0812" -draw "rectangle 0,152 200,200"
+      -fill "#08050b" -draw "rectangle 0,176 200,200"
+      -fill "#030204" -draw "rectangle 10,118 12,152" -draw "polygon 11,128 2,116 3,115 12,126" -draw "polygon 11,136 20,122 21,123 12,138" -draw "polygon 11,144 1,136 2,135 12,142"
+      -draw "rectangle 186,122 188,152" -draw "polygon 187,132 196,118 197,119 188,134" -draw "polygon 187,140 178,128 177,129 186,142" -draw "polygon 187,146 198,140 198,142 188,148") ;;
   storm)
     BG=(-size 200x200 xc:"#3b4552"
       -fill "#2a313b" -draw "rectangle 0,0 200,40"

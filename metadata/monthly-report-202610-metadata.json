@@ -1,0 +1,131 @@
+{
+  "721": {
+    "f8b9cb66507bb95a96dc7523ecfe15fd7e5b4f24297e36553fd93c1d": {
+      "MonthlyReport202610": {
+        "name": "Monthly Report October 2026",
+        "image": [
+          "ipfs://",
+          "bafkreiclg7nv4w5r4tjtzmueld7hyfeesw2a4r5zajxkb2fi2aumxhb2de"
+        ],
+        "mediaType": "image/png",
+        "period": "2026-10",
+        "context": [
+          "2026-10-01 00:00 UTC (epoch 658, day 5) to ",
+          "2026-10-31 23:59 UTC (epoch 665, day 1); 7 epoch boundaries"
+        ],
+        "governance": {
+          "1_open_at_start": [
+            {
+              "title": [
+                "Withdraw 11,787,063 ada for the OpenZeppelin Stack administered ",
+                "by Intersect"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": "Reduce minPoolCost to 75 ada",
+              "type": "ParameterChange"
+            },
+            {
+              "title": [
+                "Should stakePoolTargetNum (k) be raised from 500 to 1000? (SPO ",
+                "poll)"
+              ],
+              "type": "InfoAction"
+            }
+          ],
+          "2_new": [
+            {
+              "title": "Cardano Strategic Copper Reserve | ₳22M RWA Tokenization",
+              "type": "TreasuryWithdrawals",
+              "when": "2026-10-15 (epoch 661)"
+            },
+            {
+              "title": [
+                "AURORA: Open infrastructure for bringing real credit markets to ",
+                "Cardano"
+              ],
+              "type": "TreasuryWithdrawals",
+              "when": "2026-10-18 (epoch 662)"
+            },
+            {
+              "title": [
+                "PFMS: Bringing Government Scale Adoption to Cardano by Trivolve ",
+                "Tech"
+              ],
+              "type": "TreasuryWithdrawals",
+              "when": "2026-10-21 (epoch 662)"
+            },
+            {
+              "title": "State of the Cardano Developer Ecosystem - 2026 Survey",
+              "type": "InfoAction",
+              "when": "2026-10-28 (epoch 664)"
+            }
+          ],
+          "3_ratified": [],
+          "4_enacted": [],
+          "5_expired": [
+            {
+              "title": [
+                "Withdraw 11,787,063 ada for the OpenZeppelin Stack administered ",
+                "by Intersect"
+              ],
+              "type": "TreasuryWithdrawals",
+              "votes": {
+                "drep": "4.00",
+                "cc": "71.43"
+              },
+              "when": "2026-10-11 (660-661)"
+            },
+            {
+              "title": "Reduce minPoolCost to 75 ada",
+              "type": "ParameterChange",
+              "votes": {
+                "drep": "44.18",
+                "cc": "71.43"
+              },
+              "when": "2026-10-11 (660-661)"
+            },
+            {
+              "title": [
+                "Should stakePoolTargetNum (k) be raised from 500 to 1000? (SPO ",
+                "poll)"
+              ],
+              "type": "InfoAction",
+              "votes": {
+                "drep": "7.78",
+                "cc": "16.67",
+                "spo": "2.16"
+              },
+              "when": "2026-10-21 (662-663)"
+            }
+          ],
+          "6_open_at_end": [
+            {
+              "title": "Cardano Strategic Copper Reserve | ₳22M RWA Tokenization",
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": [
+                "AURORA: Open infrastructure for bringing real credit markets to ",
+                "Cardano"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": [
+                "PFMS: Bringing Government Scale Adoption to Cardano by Trivolve ",
+                "Tech"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": "State of the Cardano Developer Ecosystem - 2026 Survey",
+              "type": "InfoAction"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
