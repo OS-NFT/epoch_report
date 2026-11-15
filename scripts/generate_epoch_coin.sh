@@ -1,6 +1,7 @@
 #!/bin/bash
 # Usage: ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
-# Themes: forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm (random if omitted)
+# Themes: forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm bloodmoon
+#         sunrise lighthouse balloons windmill sailboat sunflower train (random if omitted)
 
 EPOCH="$1"
 TIER="$2"
@@ -21,7 +22,7 @@ else
   HIGHLIGHT="#e8e8e8"
 fi
 
-THEMES=(forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm bloodmoon)
+THEMES=(forest desert beach ocean mountain night aurora lagoon meadow savanna reef storm bloodmoon sunrise lighthouse balloons windmill sailboat sunflower train)
 if [ -z "$THEME" ]; then
   THEME=${THEMES[$RANDOM % ${#THEMES[@]}]}
 fi
@@ -177,6 +178,131 @@ case "$THEME" in
       -fill "#24343f" -draw "rectangle 0,152 200,200"
       -fill "#2b3d4a" -draw "rectangle 0,176 200,200"
       -fill "#8fa3b0" -draw "rectangle 8,150 22,152" -draw "rectangle 168,160 184,162" -draw "rectangle 176,182 192,184" -draw "rectangle 24,186 38,188") ;;
+  sunrise)
+    BG=(-size 200x200 xc:"#b7a3d6"
+      -fill "#6b8fc9" -draw "rectangle 0,0 200,30"
+      -fill "#9198d2" -draw "rectangle 0,30 200,60"
+      -fill "#f6b8a8" -draw "rectangle 0,100 200,128"
+      -fill "#ffd59a" -draw "rectangle 0,128 200,148"
+      -fill "#fff0b5" -draw "circle 22,148 22,132"
+      -fill "#f4ecef" -draw "rectangle 0,146 200,150"
+      -fill "#6f8f5a" -draw "path 'M 0,152 Q 50,140 100,154 T 200,150 L 200,200 L 0,200 Z'"
+      -fill "#607f4f" -draw "path 'M 0,164 Q 40,156 90,166 T 200,160 L 200,200 L 0,200 Z'"
+      -fill "#4f7044" -draw "path 'M 0,180 Q 60,170 110,182 T 200,176 L 200,200 L 0,200 Z'"
+      -fill "#43623b" -draw "path 'M 0,192 Q 70,186 120,194 T 200,190 L 200,200 L 0,200 Z'"
+      -fill "#3f5f38" -draw "rectangle 8,182 9,185" -draw "rectangle 20,188 21,191" -draw "rectangle 34,184 35,187" -draw "rectangle 168,180 169,183" -draw "rectangle 182,186 183,189" -draw "rectangle 194,178 195,181"
+      -fill "#f6d6e0" -draw "point 14,170" -draw "point 28,176" -draw "point 176,168" -draw "point 190,172"
+      -fill "#3a2f4a" -draw "line 162,20 166,24" -draw "line 166,24 170,20" -draw "line 176,32 179,35" -draw "line 179,35 182,32") ;;
+  lighthouse)
+    BG=(-size 200x200 xc:"#2b3f66"
+      -fill "#1d2b4a" -draw "rectangle 0,0 200,45"
+      -fill "#4a5a82" -draw "rectangle 0,100 200,124"
+      -fill "#e9a46b" -draw "rectangle 0,124 200,140"
+      -fill "#1f4f73" -draw "rectangle 0,140 200,200"
+      -fill "#2a6690" -draw "rectangle 0,160 200,200"
+      -fill "#245d84" -draw "path 'M 0,168 Q 25,163 50,168 T 100,168 T 150,168 T 200,168 L 200,174 L 0,174 Z'"
+      -fill "#33739e" -draw "path 'M 0,184 Q 25,179 50,184 T 100,184 T 150,184 T 200,184 L 200,188 L 0,188 Z'"
+      -fill "#cfe6f2" -draw "rectangle 6,152 20,153" -draw "rectangle 22,178 36,179" -draw "rectangle 8,192 18,193" -draw "rectangle 150,186 162,187"
+      -fill "#fff2b0" -draw "polygon 186,104 200,82 200,96"
+      -fill "#33333a" -draw "polygon 168,200 172,168 186,160 200,166 200,200"
+      -fill "#45454e" -draw "polygon 172,168 186,160 182,172 174,176"
+      -fill "#e8f4fa" -draw "point 166,184" -draw "point 164,190" -draw "point 167,196" -draw "point 170,178"
+      -fill "#f2f2f2" -draw "polygon 180,164 182,112 190,112 192,164"
+      -fill "#d9363e" -draw "rectangle 181,126 191,134" -draw "rectangle 180,146 192,154"
+      -fill "#2a2a30" -draw "rectangle 180,104 192,112"
+      -fill "#ffe066" -draw "rectangle 183,106 189,111"
+      -fill "#2a2a30" -draw "polygon 179,104 186,97 193,104"
+      -fill white -draw "point 22,16" -draw "point 40,30" -draw "point 12,46") ;;
+  balloons)
+    BG=(-size 200x200 xc:"#cfe8f7"
+      -fill "#eef8fd" -draw "rectangle 0,0 200,28"
+      -fill "#def1fa" -draw "rectangle 0,28 200,55"
+      -fill "#e8434a" -draw "ellipse 26,28 11,13 0,360"
+      -fill "#ffd34a" -draw "rectangle 20,16 24,40" -draw "rectangle 28,16 32,40"
+      -fill "#5a4030" -draw "rectangle 23,44 29,48"
+      -fill "#3a2a20" -draw "line 18,36 23,44" -draw "line 34,36 29,44"
+      -fill "#4a8fe0" -draw "ellipse 180,44 8,9 0,360"
+      -fill white -draw "rectangle 178,35 182,53"
+      -fill "#5a4030" -draw "rectangle 178,55 182,58"
+      -fill "#ff9f43" -draw "ellipse 188,14 5,6 0,360"
+      -fill "#5a4030" -draw "rectangle 187,21 189,23"
+      -fill "#8fc46a" -draw "path 'M 0,160 Q 50,146 100,162 T 200,156 L 200,200 L 0,200 Z'"
+      -fill "#7fb85e" -draw "path 'M 0,170 Q 50,162 100,172 T 200,166 L 200,200 L 0,200 Z'"
+      -fill "#6faa52" -draw "path 'M 0,184 Q 60,174 110,186 T 200,180 L 200,200 L 0,200 Z'"
+      -fill "#e2d6a8" -draw "path 'M 0,196 Q 40,190 80,194 T 160,192 T 200,190 L 200,193 Q 160,195 120,196 T 40,198 T 0,199 Z'"
+      -fill "#3f6b2a" -draw "circle 14,172 14,166" -draw "circle 188,168 188,162"
+      -fill "#5a4030" -draw "rectangle 13,176 15,182" -draw "rectangle 187,172 189,178"
+      -fill "#5a9442" -draw "rectangle 28,178 29,181" -draw "rectangle 40,184 41,187" -draw "rectangle 160,182 161,185" -draw "rectangle 172,176 173,179") ;;
+  windmill)
+    BG=(-size 200x200 xc:"#7ab4e6"
+      -fill "#3f86d0" -draw "rectangle 0,0 200,24"
+      -fill "#5a9ddc" -draw "rectangle 0,24 200,52"
+      -fill "#a8d0f0" -draw "rectangle 0,120 200,150"
+      -fill "#c8d6e6" -draw "circle 20,34 20,22" -draw "circle 38,30 38,16" -draw "circle 4,40 4,30" -draw "rectangle 0,34 54,46"
+      -fill white -draw "circle 20,30 20,19" -draw "circle 38,26 38,14" -draw "circle 4,36 4,27" -draw "rectangle 0,30 52,40"
+      -fill "#c8d6e6" -draw "circle 172,22 172,12" -draw "circle 188,18 188,6" -draw "rectangle 158,22 200,32"
+      -fill white -draw "circle 172,19 172,10" -draw "circle 188,15 188,5" -draw "rectangle 160,19 200,28"
+      -fill "#e6f2fb" -draw "rectangle 2,86 20,87" -draw "rectangle 8,96 24,97" -draw "rectangle 178,74 196,75" -draw "rectangle 2,112 14,113"
+      -fill "#8fbf5a" -draw "rectangle 0,150 200,200"
+      -fill "#83b553" -draw "path 'M 0,162 Q 50,154 100,164 T 200,158 L 200,200 L 0,200 Z'"
+      -fill "#76a849" -draw "path 'M 0,176 Q 60,168 110,178 T 200,172 L 200,200 L 0,200 Z'"
+      -fill "#6a9a42" -draw "path 'M 0,188 Q 70,182 120,190 T 200,186 L 200,200 L 0,200 Z'"
+      -fill "#c9b48a" -draw "polygon 185,165 189,165 172,200 160,200"
+      -fill "#5f8f3a" -draw "rectangle 10,170 11,173" -draw "rectangle 24,180 25,183" -draw "rectangle 40,192 41,195" -draw "rectangle 150,184 151,187" -draw "rectangle 196,176 197,179" -draw "rectangle 140,196 141,199"
+      -fill "#7a5a44" -draw "polygon 178,165 181,114 193,114 196,165"
+      -fill "#4a3a2e" -draw "polygon 178,114 187,104 196,114"
+      -fill "#2a2a30" -draw "rectangle 184,150 190,165"
+      -stroke "#f2f2f2" -strokewidth 3 -draw "line 187,110 203,94" -draw "line 187,110 171,126" -draw "line 187,110 171,94" -draw "line 187,110 203,126" -stroke none
+      -fill "#4a3a2e" -draw "circle 187,110 187,108") ;;
+  sailboat)
+    BG=(-size 200x200 xc:"#c9b8d8"
+      -fill "#7fa6d6" -draw "rectangle 0,0 200,30"
+      -fill "#a7b4dc" -draw "rectangle 0,30 200,60"
+      -fill "#f2c79a" -draw "rectangle 0,100 200,118"
+      -fill "#f8a978" -draw "rectangle 0,118 200,132"
+      -fill "#fff0b5" -draw "circle 24,24 24,12"
+      -fill "#2f6f9a" -draw "rectangle 0,132 200,200"
+      -fill "#2b6890" -draw "path 'M 0,148 Q 25,143 50,148 T 100,148 T 150,148 T 200,148 L 200,152 L 0,152 Z'"
+      -fill "#285f86" -draw "rectangle 0,162 200,200"
+      -fill "#225576" -draw "path 'M 0,178 Q 25,173 50,178 T 100,178 T 150,178 T 200,178 L 200,182 L 0,182 Z'"
+      -fill "#3a7aa6" -draw "rectangle 30,160 40,161" -draw "rectangle 140,170 150,171" -draw "rectangle 20,186 30,187"
+      -fill "#ffd59a" -draw "rectangle 8,140 26,141" -draw "rectangle 12,150 30,151" -draw "rectangle 6,170 20,171" -draw "rectangle 150,192 164,193"
+      -fill "#f2f2f2" -draw "polygon 180,140 180,174 197,174" -draw "polygon 177,148 177,174 164,174"
+      -fill "#3a2a20" -draw "rectangle 178,138 179,178"
+      -fill "#5a3a28" -draw "polygon 160,178 198,178 192,187 166,187"
+      -fill "#1f4f70" -draw "rectangle 162,190 196,191"
+      -fill "#3a2f4a" -draw "line 160,18 164,22" -draw "line 164,22 168,18") ;;
+  sunflower)
+    BG=(-size 200x200 xc:"#9fd0f0"
+      -fill "#dff0fb" -draw "rectangle 0,0 200,28"
+      -fill "#bfe2f6" -draw "rectangle 0,28 200,55"
+      -fill "#fff0b5" -draw "circle 176,24 176,12"
+      -fill "#7fb84a" -draw "rectangle 0,150 200,200"
+      -fill "#70aa42" -draw "path 'M 0,164 Q 50,156 100,166 T 200,160 L 200,200 L 0,200 Z'"
+      -fill "#5f9a3a" -draw "path 'M 0,180 Q 60,172 110,182 T 200,176 L 200,200 L 0,200 Z'"
+      -fill "#548a33" -draw "path 'M 0,192 Q 70,187 120,194 T 200,190 L 200,200 L 0,200 Z'"
+      -fill "#4a7f2c" -draw "rectangle 18,186 19,189" -draw "rectangle 40,180 41,183" -draw "rectangle 156,182 157,185" -draw "rectangle 180,190 181,193" -draw "rectangle 4,174 5,177"
+      -fill "#3f7a2a" -draw "rectangle 9,160 11,200" -draw "rectangle 29,170 31,200" -draw "rectangle 169,166 171,200" -draw "rectangle 189,158 191,200"
+      -fill "#ffc72c" -draw "circle 10,156 10,147" -draw "circle 30,166 30,158" -draw "circle 170,162 170,154" -draw "circle 190,154 190,145"
+      -fill "#6a3f1f" -draw "circle 10,156 10,152" -draw "circle 30,166 30,163" -draw "circle 170,162 170,159" -draw "circle 190,154 190,150"
+      -fill "#ffc72c" -draw "point 50,190" -draw "point 60,186" -draw "point 140,188" -draw "point 150,192") ;;
+  train)
+    BG=(-size 200x200 xc:"#bfe3f5"
+      -fill "#e8f6fc" -draw "rectangle 0,0 200,28"
+      -fill "#d3eef8" -draw "rectangle 0,28 200,55"
+      -fill "#8fc46a" -draw "path 'M 0,150 Q 50,136 100,152 T 200,146 L 200,200 L 0,200 Z'"
+      -fill "#7db85c" -draw "path 'M 0,166 Q 50,158 100,168 T 200,162 L 200,200 L 0,200 Z'"
+      -fill "#6faa52" -draw "rectangle 0,180 200,200"
+      -fill "#5a9a42" -draw "circle 30,178 30,173" -draw "circle 40,180 40,176" -draw "circle 132,180 132,176"
+      -fill "#a89a80" -draw "rectangle 0,190 200,198"
+      -fill "#5a4030" -draw "rectangle 0,192 200,194"
+      -fill "#8a7a6a" -draw "rectangle 4,194 8,196" -draw "rectangle 20,194 24,196" -draw "rectangle 36,194 40,196" -draw "rectangle 160,194 164,196" -draw "rectangle 176,194 180,196" -draw "rectangle 192,194 196,196"
+      -fill "#e8434a" -draw "rectangle 150,174 176,188"
+      -fill "#2a2a30" -draw "rectangle 160,166 164,174" -draw "rectangle 168,170 176,174"
+      -fill "#ffd34a" -draw "rectangle 152,176 158,182"
+      -fill "#4a8fe0" -draw "rectangle 178,176 200,188"
+      -fill "#2a2a30" -draw "circle 156,190 156,187" -draw "circle 170,190 170,187" -draw "circle 184,190 184,187" -draw "circle 196,190 196,187"
+      -fill "#f2f2f2" -draw "circle 162,158 162,154" -draw "circle 156,148 156,143" -draw "circle 148,138 148,132") ;;
   *)
     echo "Unknown theme: $THEME"; exit 1 ;;
 esac

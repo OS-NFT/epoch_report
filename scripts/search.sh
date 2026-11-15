@@ -11,7 +11,7 @@ jq -r --arg q "${1:-}" --slurpfile m manifest.json '
   ."721" | to_entries[] | select(.value | type == "object") | .value
   | to_entries[] | .key as $asset | .value as $a
   | ([$m[0].reports[] | select(.asset == $asset) | .tx] | first // "") as $tx
-  | ($a.epoch // $a.month // $asset | tostring) as $label
+  | ($a.epoch // $a.month // $asset | tostring) as $lbl
   | ($a.governance // {}) | to_entries[] | select(.value | type == "array")
   | .key as $s | .value[]
   | (.title | j) as $t
@@ -19,7 +19,7 @@ jq -r --arg q "${1:-}" --slurpfile m manifest.json '
   | (.votes // (with_entries(select(.key | endswith("_yes_pct")))
                | with_entries(.key |= sub("_yes_pct$"; "")))) as $v
   | select($q == "" or ([$t, $ty, $s] | any(ascii_downcase | contains($q | ascii_downcase))))
-  | [$label, $s, $ty, $t,
+  | [$lbl, $s, $ty, $t,
      ($v | to_entries | map("\(.key)=\(.value)") | join(" ") | if . == "" then "-" else . end),
      (if $tx == "" then "-" else $tx[0:12] end)] | @tsv
 ' metadata/*.json | column -t -s $'\t'

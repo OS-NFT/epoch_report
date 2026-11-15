@@ -1,0 +1,47 @@
+{
+  "721": {
+    "f8b9cb66507bb95a96dc7523ecfe15fd7e5b4f24297e36553fd93c1d": {
+      "EpochReport666": {
+        "name": "Epoch Report 666",
+        "image": [
+          "ipfs://",
+          "bafkreihikzhk3qw6335sso5sia5wr5ai5clzpmzab6qvfvqyv66f2hhodm"
+        ],
+        "mediaType": "image/png",
+        "tier": "gold",
+        "theme": "bloodmoon",
+        "epoch": 666,
+        "governance": {
+          "new": [],
+          "active": [
+            {
+              "title": "Cardano Strategic Copper Reserve | ₳22M RWA Tokenization",
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": [
+                "AURORA: Open infrastructure for bringing real credit markets to ",
+                "Cardano"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": [
+                "PFMS: Bringing Government Scale Adoption to Cardano by Trivolve ",
+                "Tech"
+              ],
+              "type": "TreasuryWithdrawals"
+            },
+            {
+              "title": "State of the Cardano Developer Ecosystem - 2026 Survey",
+              "type": "InfoAction"
+            }
+          ],
+          "ratified": [],
+          "enacted": [],
+          "expired": []
+        }
+      }
+    }
+  }
+}

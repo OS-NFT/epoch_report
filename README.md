@@ -32,7 +32,7 @@ Both series share one policy.
 ./generate_epoch_coin.sh <epoch_number> <silver|gold> [theme]
 ```
 
-Themes: forest, desert, beach, ocean, mountain, night, aurora, lagoon, meadow, savanna, reef, storm, bloodmoon (random if omitted). Theme details sit in the corners, outside the coin (rim radius 75 around the centre of the 200x200 grid).
+Themes (20): forest, desert, beach, ocean, mountain, night, aurora, lagoon, meadow, savanna, reef, storm, bloodmoon, sunrise, lighthouse, balloons, windmill, sailboat, sunflower, train (random if omitted). The last seven were added on 2026-11-15; the original 13 render exactly as before. Theme details sit in the corners, outside the coin (rim radius 75 around the centre of the 200x200 grid).
 
 **Tiers:** silver for standard epochs. Gold for sequential digit runs in either direction (e.g. 654), round hundreds (e.g. 700), and repdigits (e.g. 777).
 
@@ -142,6 +142,8 @@ sha256sum metadata/*.json
 | 663   | silver        | storm    | `bafkreifeihfmozqbpm6anti57uqdp2tkm22lcqrgg2u76ogrelrrwzs6ce` |
 | 664   | silver        | meadow   | `bafkreicme3xetpzkdmqgbzhe4cwq5vvawfkmfh5lkvhzu4fkgyslpu36h4` |
 | 665   | silver        | reef     | `bafkreigo7iq2ie6rgfduyjz6tedncp5k2yxvc36teanbcvpt7o76pejrc4` |
+| 666   | gold          | bloodmoon | `bafkreihikzhk3qw6335sso5sia5wr5ai5clzpmzab6qvfvqyv66f2hhodm` |
+| 667   | silver        | sunrise  | `bafkreicxipzumuapr7ncrnutbwbz7cdpnqfp3p35a6xqemywzu22s3t7em` |
 
 ### Monthly Reports
 
@@ -173,6 +175,8 @@ Quantity 1 each. Dates are UTC.
 | 664     | `EpochReport664`      | v2      | 2026-11-06 | `2ac8d399bc257db42bed34bd416d687e3c95ca9637487001fdfb209c7218af52` |
 | 2026-10 | `MonthlyReport202610` | monthly | 2026-11-06 | `c2589d7d1d8ddb1a60f69941c78684a10eb5cba68314e8504f1269d22e462f7e` |
 | 665     | `EpochReport665`      | v2      | 2026-11-10 | `d6296a4a8c2ea4e5e8da66f87f28ea38aaba8834deab202af78bcfee365b3d58` |
+| 666     | `EpochReport666`      | v2      | 2026-11-13 | `ff1ce2f448a5e609075975424650248d0bf44f83d7253576f1e56a91c145f545` |
+| 667     | `EpochReport667`      | v2      | 2026-11-15 | `bf10651e237354eab775a2af33f69b35e3321e8e28c30436f10c2691339aef3d` |
 
 ## Provenance notes
 
@@ -182,6 +186,9 @@ Quantity 1 each. Dates are UTC.
 - **664 survey title:** Koios had no parsed metadata for the new InfoAction `gov_action1wpjynage9uu4rg7rev2g2g2u0spvj5g3fe6lqq286m3dl5tdv47sqhysy4u` at build time. The title was taken from its anchor document after confirming the document's blake2b-256 matched the on-chain anchor hash `0ac3f40505cab485e027989b2eebcb4897a2af0e483fe5fe1274c88ecd8290b1`.
 - **664 PFMS title:** copied byte-for-byte from the minted 663 metadata (`metadata/epoch-report-663-metadata.json`, sha256 `03dc628b15627c62580d48ae39610a04ef8da1a4e348298acf12be95a9653e0f`).
 - **665 PFMS and survey titles:** Koios still had no parsed metadata for either action, so both title values were copied byte-for-byte from the minted 664 metadata (`metadata/epoch-report-664-metadata.json`, sha256 `17ab0661a91002c1d3417740cf2fb779bfa0303ba47595bd2dd07ea0b28c6398`).
+- **666 PFMS and survey titles:** Koios still had no parsed metadata for either action, so both title values were copied byte-for-byte from the minted 665 metadata (`metadata/epoch-report-665-metadata.json`, sha256 `7a4d5a4090943bdb66b28d8b74a72b246e69af31de67cdbe61a13d3d46bc02a7`).
+- **667 PFMS and survey titles:** copied byte-for-byte from the minted 666 metadata (`metadata/epoch-report-666-metadata.json`, sha256 `5faab11cb0649555216e581120ad9fa8d499d8a4bb186979c2d06336b5da0cf3`), after checking that file with `sha256sum -c`.
+- **657 theme:** the 657 image (`coins/epoch_657_coin_beach_silver.png`) shows the desert design (dunes, pyramid, sun), but its on-chain metadata says `"theme": "beach"`. The image matches the coin script's `desert` output, while the metadata records `beach`. The minted metadata cannot be changed, so the manifest and tables keep `beach` as minted. 657 is the only report whose image and theme label differ.
 - **Monthly 2026-10 vote figures:** for the k-poll InfoAction, Koios revised the SPO yes figure from 2.20 (as minted in 663) to 2.16 before the October Monthly Report was built. The Monthly Report records 2.16, the figure Koios reported at build time; 663 keeps 2.20.
 
 ## License

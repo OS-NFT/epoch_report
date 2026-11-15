@@ -158,6 +158,30 @@
       "sha256": "7a4d5a4090943bdb66b28d8b74a72b246e69af31de67cdbe61a13d3d46bc02a7"
     },
     {
+      "series": "epoch",
+      "epoch": 666,
+      "asset": "EpochReport666",
+      "tx": "ff1ce2f448a5e609075975424650248d0bf44f83d7253576f1e56a91c145f545",
+      "schema": "v2",
+      "tier": "gold",
+      "theme": "bloodmoon",
+      "image": "ipfs://bafkreihikzhk3qw6335sso5sia5wr5ai5clzpmzab6qvfvqyv66f2hhodm",
+      "file": "metadata/epoch-report-666-metadata.json",
+      "sha256": "5faab11cb0649555216e581120ad9fa8d499d8a4bb186979c2d06336b5da0cf3"
+    },
+    {
+      "series": "epoch",
+      "epoch": 667,
+      "asset": "EpochReport667",
+      "tx": "bf10651e237354eab775a2af33f69b35e3321e8e28c30436f10c2691339aef3d",
+      "schema": "v2",
+      "tier": "silver",
+      "theme": "sunrise",
+      "image": "ipfs://bafkreicxipzumuapr7ncrnutbwbz7cdpnqfp3p35a6xqemywzu22s3t7em",
+      "file": "metadata/epoch-report-667-metadata.json",
+      "sha256": "bb2b4196a7c43963771b7f3a8f0ac67c7174a617d392e8e278886a9f9e750e96"
+    },
+    {
       "series": "monthly",
       "month": "2026-09",
       "asset": "MonthlyReport202609",
